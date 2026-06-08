@@ -31,3 +31,15 @@ pipeline:
         connectorRef: account.github
         repoName: keen-software/playgroundJS
         build: <+input>
+  notificationRules:
+    - name: test
+      identifier: test
+      pipelineEvents:
+        - type: AllEvents
+      notificationMethod:
+        type: Webhook
+        spec:
+          webhookUrl: https://webhook.site/bfa015d0-3319-492f-a4a8-4a1601d345e4
+          headers:
+            TEST: <+ "hello world" >
+      enabled: true
