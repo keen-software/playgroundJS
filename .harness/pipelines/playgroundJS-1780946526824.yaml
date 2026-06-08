@@ -1,0 +1,33 @@
+pipeline:
+  name: Build playgroundJS
+  identifier: Build_keen_software_playgroundJS_1780946531977
+  projectIdentifier: Nofar_Test_Templates
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Echo Welcome Message
+                  identifier: Echo_Welcome_Message
+                  spec:
+                    shell: Sh
+                    command: echo "Welcome to Harness CI"
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.github
+        repoName: keen-software/playgroundJS
+        build: <+input>
